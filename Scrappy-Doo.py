@@ -5,8 +5,9 @@ from langchain.document_loaders import PyPDFLoader, TextLoader
 from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
 from langchain.embeddings import GooglePalmEmbeddings
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, GoogleGenerativeAI
-from langchain.vectorstores import Pinecone
-from pinecone import Pinecone
+#from langchain.vectorstores import Pinecone
+#from pinecone import Pinecone
+from langchain_community.vectorstores import Chroma
 from langchain.chains import RetrievalQA
 from langchain_community.document_loaders import WebBaseLoader
 from langchain.memory import ConversationBufferMemory
@@ -14,7 +15,7 @@ import os
 
 os.system('pip install beautifulsoup4')
 
-os.environ['PINECONE_API_KEY'] = "pcsk_5WxMYQ_3MtZmZK8kdTitc7B8qvw7HfcD8W8FnDEKRyevPxnYAdn9TVDa1SaAPkXKb68aTK"
+#os.environ['PINECONE_API_KEY'] = "pcsk_5WxMYQ_3MtZmZK8kdTitc7B8qvw7HfcD8W8FnDEKRyevPxnYAdn9TVDa1SaAPkXKb68aTK"
 os.environ['GOOGLE_API_KEY'] = "AIzaSyAHKH8ypLMmST25bhmZ8zar_03QuBBoGIk"
 
 def load_website(url):
@@ -40,9 +41,14 @@ if st.button("Fetch"):
             split_docs = text_splitter.split_documents(website_data)
             embed_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
             doc_embeds = embed_model.embed_documents(link)
-            index_name = "scrappy-doo"
-            vectorstore = Pinecone.from_documents(split_docs, embed_model, index_name=index_name)
+            
+            #index_name = "scrappy-doo"
+            #vectorstore = Pinecone.from_documents(split_docs, embed_model, index_name=index_name)
+
+            vectorstore = Chroma.from_documents(split_docs, embed_model)
+            
             llm = GoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
+            
             qa = RetrievalQA.from_chain_type(
                 llm=llm,
                 chain_type="stuff",
