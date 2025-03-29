@@ -16,7 +16,7 @@ import os
 os.system('pip install beautifulsoup4')
 
 #os.environ['PINECONE_API_KEY'] = "pcsk_5WxMYQ_3MtZmZK8kdTitc7B8qvw7HfcD8W8FnDEKRyevPxnYAdn9TVDa1SaAPkXKb68aTK"
-os.environ['GOOGLE_API_KEY'] = "AIzaSyAHKH8ypLMmST25bhmZ8zar_03QuBBoGIk"
+os.environ['GOOGLE_API_KEY'] = st.secrets["GOOGLE_API_KEY"]
 
 def load_website(url):
     loader = WebBaseLoader(url)
