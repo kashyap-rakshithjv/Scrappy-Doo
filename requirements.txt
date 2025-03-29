@@ -1,8 +1,5 @@
-langchain
-langchain-google-genai
-langchain-community
-chromadb
-beautifulsoup4
-google-generativeai
-grpcio>=1.62.0 
-protobuf>=4.25.3 
+langchain==0.0.200
+langchain-google-genai==0.1.0
+langchain-community==0.0.1
+chromadb==0.3.23
+beautifulsoup4==4.12.2
