@@ -45,7 +45,7 @@ if st.button("Fetch"):
             #index_name = "scrappy-doo"
             #vectorstore = Pinecone.from_documents(split_docs, embed_model, index_name=index_name)
         
-            vectorstore = Chroma.from_documents(split_docs, embed_model)
+            vectorstore = Chroma.from_documents(split_docs, embed_model, persist_directory=None)
             
             llm = GoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
             
