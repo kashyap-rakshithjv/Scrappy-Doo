@@ -13,7 +13,7 @@ from langchain_community.document_loaders import WebBaseLoader
 from langchain.memory import ConversationBufferMemory
 import os
 
-os.system('pip install beautifulsoup4')
+#os.system('pip install beautifulsoup4')
 
 #os.environ['PINECONE_API_KEY'] = "pcsk_5WxMYQ_3MtZmZK8kdTitc7B8qvw7HfcD8W8FnDEKRyevPxnYAdn9TVDa1SaAPkXKb68aTK"
 os.environ['GOOGLE_API_KEY'] = st.secrets["GOOGLE_API_KEY"]
@@ -45,7 +45,7 @@ if st.button("Fetch"):
             #index_name = "scrappy-doo"
             #vectorstore = Pinecone.from_documents(split_docs, embed_model, index_name=index_name)
         
-            vectorstore = Chroma.from_documents(split_docs, embed_model, persist_directory="chroma_db")
+            vectorstore = Chroma.from_documents(split_docs, embed_model)
             
             llm = GoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
             
