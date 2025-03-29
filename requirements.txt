@@ -1,5 +1,6 @@
-langchain
-langchain-openai
-langchain-google-genai
 streamlit
-
+langchain
+langchain-google-genai
+langchain-community
+chromadb
+beautifulsoup4
