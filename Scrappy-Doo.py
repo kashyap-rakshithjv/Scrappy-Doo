@@ -12,7 +12,6 @@ from langchain.chains import RetrievalQA
 from langchain_community.document_loaders import WebBaseLoader
 from langchain.memory import ConversationBufferMemory
 import os
-import chromadb
 
 #os.system('pip install beautifulsoup4')
 
