@@ -1,5 +1,5 @@
 langchain
 langchain-google-genai
 langchain-community
-chromadb==0.3.23
+chromadb==0.3.24
 beautifulsoup4
