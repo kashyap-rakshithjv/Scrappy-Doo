@@ -1,7 +1,7 @@
 import streamlit as st
 from langchain import LLMChain, PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.document_loaders import PyPDFLoader, TextLoader
+from langchain.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
 from langchain.embeddings import GooglePalmEmbeddings
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, GoogleGenerativeAI
@@ -11,6 +11,7 @@ from langchain_community.vectorstores import Chroma
 from langchain.chains import RetrievalQA
 from langchain_community.document_loaders import WebBaseLoader
 from langchain.memory import ConversationBufferMemory
+from langchain.chains import ConversationalRetrievalChain
 import os
 
 #os.system('pip install beautifulsoup4')
