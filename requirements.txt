@@ -4,3 +4,5 @@ langchain-community==0.2.16
 chromadb==0.5.3
 beautifulsoup4==4.12.3
 numpy==1.26.4
+streamlit==1.44.1
+pysqlite3-binary==0.5.4
